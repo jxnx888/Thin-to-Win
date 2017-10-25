@@ -1,0 +1,185 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Thin_to_Win.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+    </script>
+
+    <!-- FOR SOCIAL MEDIA -->    
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+        <link href="Content/Social.css" rel="stylesheet" />
+
+
+</head>
+<body>
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container">
+        <form id="form1" runat="server" class="form-horizontal">
+
+        <a href="/Default"><header class="HeadImage" style="background-color:transparent !important"><%-- image set in site.css --%></header></a>
+
+
+        <div class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <!-- Brand and toggle menu button -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" 
+                            data-toggle="collapse" data-target="#mainMenu" 
+                            aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/Default">Thin to Win</a>
+                    </div>
+                    <!-- nav content for toggling -->
+                <div class="navbar-collapse collapse" id="mainMenu">
+                  <ul class= "nav navbar-nav">
+                            <li><asp:HyperLink NavigateUrl="~/Profile" runat="server">
+                                    Profile</asp:HyperLink></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    Fitness Plans<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><asp:HyperLink NavigateUrl="~/Diet" 
+                                            runat="server">Diet Schedules</asp:HyperLink></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><asp:HyperLink NavigateUrl="~/WorkOut" 
+                                            runat="server">Workout Routines</asp:HyperLink></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    Just For You<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><asp:HyperLink NavigateUrl="~/JustForYou-Diet" 
+                                            runat="server">Your Diet Plan</asp:HyperLink></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><asp:HyperLink NavigateUrl="~/JustForYou-WorkOut" 
+                                            runat="server">Your Workout</asp:HyperLink></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    Online Store<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><asp:HyperLink NavigateUrl="~/online" 
+                                            runat="server">Store</asp:HyperLink></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><asp:HyperLink NavigateUrl="~/cart" 
+                                            runat="server">Cart</asp:HyperLink></li>
+                                </ul>
+                            </li>
+                            <li><asp:HyperLink NavigateUrl="~/News" runat="server">
+                                    Health and News</asp:HyperLink></li>
+                            <li><asp:HyperLink NavigateUrl="~/Calculator" runat="server">
+                                    BMI Calculator</asp:HyperLink></li>
+                        </ul>
+                     <!-- Login -->
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+    <main>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>   
+        <hr />
+
+                <!-- -------------- FOOTER ----------------- -->             
+        <footer>
+            <div class="col-md-12" style="background-color:#585858; z-index:1; padding:10px 0px 0px 0px;">
+                    <div class="col-md-4" style="background-color:#585858; z-index:2;">
+                        <h4>Contact Us</h4> 
+                        <ul class="myList">
+                            <li>Thin To Win Inc.</li>
+                            <li>1234 Development Ave</li>
+                            <li>Fairfield, CT 06825</li>
+                            <li><span class="glyphicon glyphicon-phone"></span> (203) 555-1234</li>
+                            <li><span class="glyphicon glyphicon-envelope"></span> contactUs@thinToWin.com</li>    
+                        </ul>
+                        <br>
+                    </div>
+                    <div class="col-md-4" "text-center" style="background-color:#585858;  z-index:2; ">
+                        <h4>Team 1 Meambers:</h4>
+                        <ul class="myList">
+                            <li>Sam Nguien</li>
+                            <li>Xin Ning</li>
+                            <li>Monish Varapana</li>
+                            <li>Daniel Vasconez</li>
+                        </ul>
+                    </div>
+            
+                   <div class="col-md-4" style="background-color:#585858;  z-index:2;">
+                        <div class="hover"> 
+                        <a href="#" class="button facebook"><span><i class="fa fa-facebook"></i></span><div class="p"><p>Facebook&nbsp;</p></div></a>
+                           
+                            </br>
+                       <a href="#" class="button twitter"><span><i class="fa fa-twitter"></i></span><div class="p"><p>Twitter&nbsp;&nbsp;</p></div></a>
+                           
+                            </br>
+
+                       <a href="#" class="button instagram"><span><i class="fa fa-instagram"></i></span><div class="p"><p>instagram</p></div></a>
+                           
+                           </div>
+                            
+                    </div>
+                    <div class="col-md-12" style="background-color:#2E2E2E;">
+                        <p class="text-center" style="padding:5px;">Fairfield University - SW512 Web Development II - Spring 2017</p>
+                    </div>
+                </div>
+           </footer>
+    </form>
+    </div> <!-- end .container -->
+</body>
+</html>
